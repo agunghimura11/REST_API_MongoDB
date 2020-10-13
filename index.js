@@ -1,5 +1,13 @@
 import express from 'express'
 import morgan from 'morgan'
+import mongoose from 'mongoose'
+
+mongoose.connect('mongodb+srv://admin:Ari_kalem11@cluster0.wkcil.mongodb.net/dts?retryWrites=true&w=majority',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}, () => {
+    console.log('Connect DB success')
+})
 
 const app = express()
 
