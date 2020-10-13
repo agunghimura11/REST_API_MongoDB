@@ -1,13 +1,15 @@
 import express from 'express'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
+dotenv.config()
 
-mongoose.connect('mongodb+srv://admin:Ari_kalem11@cluster0.wkcil.mongodb.net/dts?retryWrites=true&w=majority&ssl=true',{ // tambahkan &ssl=true
+mongoose.connect(process.env.MONGODB_URI,{ // tambahkan &ssl=true
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }, (err, db) => {
     if (err) throw err
-    console.log('Db-',db)
+    console.log('Error -', err )
 })
 
 const app = express()
@@ -26,6 +28,6 @@ import router from './router.js'
 
 app.use ('/api', router)
 
-app.listen("8080", () => {
+app.listen(process.env.PORT, () => {
     console.log('App listen to port 8080')
 })
