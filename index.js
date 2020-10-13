@@ -2,11 +2,12 @@ import express from 'express'
 import morgan from 'morgan'
 import mongoose from 'mongoose'
 
-mongoose.connect('mongodb+srv://admin:Ari_kalem11@cluster0.wkcil.mongodb.net/dts?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://admin:Ari_kalem11@cluster0.wkcil.mongodb.net/dts?retryWrites=true&w=majority&ssl=true',{ // tambahkan &ssl=true
     useNewUrlParser: true,
     useUnifiedTopology: true,
-}, () => {
-    console.log('Connect DB success')
+}, (err, db) => {
+    if (err) throw err
+    console.log('Db-',db)
 })
 
 const app = express()
@@ -25,6 +26,6 @@ import router from './router.js'
 
 app.use ('/api', router)
 
-app.listen("3000", () => {
-    console.log('App listen to port 3000')
+app.listen("8080", () => {
+    console.log('App listen to port 8080')
 })

@@ -30,7 +30,7 @@ router.post('/homeworks', async (req, res) => {
 });
   
 
-router.get('/homework', async (req,res) => {
+router.get('/homeworks', async (req,res) => {
     const homework = await Homework.find({})
 
     if(homework) {
