@@ -1,4 +1,5 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose'
+const { mongo } = mongoose
 
 const homeworkSchema = mongoose.Schema (
     {
@@ -24,6 +25,6 @@ const homeworkSchema = mongoose.Schema (
     }
 )
 
-const Homework = mongoose.model('Homework', homeworkSchema)
+export const Homework = mongoose.model('Homework', homeworkSchema)
 
-export default Homework
+// export default Homework

@@ -21,6 +21,10 @@ app.get('/', (req,res,next) => {
     })
 })
 
+import router from './router.js'
+
+app.use ('/api', router)
+
 app.listen("3000", () => {
     console.log('App listen to port 3000')
 })
